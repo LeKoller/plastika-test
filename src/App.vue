@@ -2,49 +2,40 @@
   <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+  </div> -->
+  <div id="app">
+    <h1>Indicados ao Oscar 2021</h1>
+    <router-view />
   </div>
-  <router-view /> -->
-  <div id="app"></div>
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 
-  background: #45155a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #47275a,
-    #47275a,
-    #47275a,
-    #100515
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #47275a,
-    #47275a,
-    #47275a,
-    #100515
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+  background: #45155a;
+  background: -webkit-linear-gradient(to top, #47275a, #47275a, #100515);
+  background: linear-gradient(to top, #47275a, #47275a, #100515);
 
-#nav {
-  padding: 30px;
-}
+  h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    top: 8vh;
+    letter-spacing: 0px;
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+    @media (max-width: 500px) {
+      font-size: 36px;
+      margin: 0 16px 0 16px;
+    }
+  }
 }
 </style>

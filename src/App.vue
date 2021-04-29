@@ -31,9 +31,9 @@
     position: absolute;
     z-index: 8;
     width: 100%;
-    height: 100%;
+    height: 40%;
 
-    background: transparent linear-gradient(180deg, #100515 0%, #45155a00 40%)
+    background: transparent linear-gradient(180deg, #100515 0%, #45155a00 100%)
       0% 0% no-repeat padding-box;
   }
 

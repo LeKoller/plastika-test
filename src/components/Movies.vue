@@ -20,6 +20,27 @@
         />
       </button>
     </div>
+    <footer>
+      <span>Filtre por qualificação do portal</span>
+      <div class="buttons_case">
+        <button>
+          <span>ABAIXO DA MÉDIA</span>
+          <img
+            src="../assets/right.svg"
+            alt="Icone de seta para direita"
+            id="right_icon"
+          />
+        </button>
+        <button>
+          <span>ACIMA DA MÉDIA</span>
+          <img
+            src="../assets/right.svg"
+            alt="Icone de seta para direita"
+            id="right_icon"
+          />
+        </button>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -51,7 +72,88 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: 6vh;
+  max-width: 1400px;
+  margin: 6vh auto;
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: none;
+    background-color: #8c1ac1;
+    border: 1px solid #641289;
+    border-radius: 8px;
+    padding: 14px;
+    position: relative;
+    top: 16px;
+
+    width: 266px;
+    height: 56px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* cursor: pointer; */
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: #a55fc7;
+    }
+
+    &:active {
+      transform: scale(0.96, 0.96);
+    }
+
+    @media (max-width: 414px) {
+      width: 100%;
+    }
+
+    span {
+      font: normal normal bold 16px "Roboto";
+      letter-spacing: 0px;
+      color: #ffffff;
+      text-transform: uppercase;
+
+      @media (max-width: 414px) {
+        font-size: 14px;
+      }
+    }
+
+    #right_icon {
+      max-height: 30px;
+    }
+  }
+
+  footer {
+    z-index: 10;
+    width: 100%;
+    height: 400px;
+    background-color: #47275a;
+    position: relative;
+    top: 6vh;
+    margin-top: 200px;
+
+    span {
+      text-align: center;
+      font: normal normal bold 36px Roboto;
+      letter-spacing: 0px;
+      color: #ffffff;
+      position: relative;
+      top: 80px;
+    }
+
+    .buttons_case {
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+      margin: 120px auto;
+
+      span {
+        font-size: 14px;
+        top: 0;
+      }
+    }
+  }
 
   #vertical_line {
     z-index: 0;
@@ -94,6 +196,13 @@ export default {
       width: 40%;
       position: relative;
       margin-top: 20px;
+      box-shadow: 0px 12px 6px #00000029;
+      transition: all 0.25s ease;
+
+      &:hover {
+        transform: scale(1.1, 1.1);
+        box-shadow: 0px 12px 12px #00000029;
+      }
 
       @media (max-width: 414px) {
         width: 96%;
@@ -164,55 +273,6 @@ export default {
       h4 {
         color: #fff;
         position: relative;
-      }
-    }
-
-    button {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      outline: none;
-      background-color: #8c1ac1;
-      border: 1px solid #641289;
-      border-radius: 8px;
-      padding: 14px;
-      position: relative;
-      top: 16px;
-
-      width: 266px;
-      height: 56px;
-      text-align: left;
-      margin-left: auto;
-      margin-right: auto;
-
-      cursor: pointer;
-      transition: all 0.25s ease;
-
-      &:hover {
-        transform: scale(1.04, 1.04);
-      }
-
-      &:active {
-        transform: scale(0.96, 0.96);
-      }
-
-      @media (max-width: 414px) {
-        width: 100%;
-      }
-
-      span {
-        font: normal normal bold 16px "Roboto";
-        letter-spacing: 0px;
-        color: #ffffff;
-        text-transform: uppercase;
-
-        @media (max-width: 414px) {
-          font-size: 14px;
-        }
-      }
-
-      #right_icon {
-        max-height: 30px;
       }
     }
   }

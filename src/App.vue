@@ -4,7 +4,8 @@
     <router-link to="/about">About</router-link>
   </div> -->
   <div id="app">
-    <h1>Indicados ao Oscar 2021</h1>
+    <div id="upper_shadow" />
+    <h1 class="page_title">Indicados ao Oscar 2021</h1>
     <router-view />
   </div>
 </template>
@@ -18,13 +19,26 @@
   color: #2c3e50;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 
-  background: #45155a;
-  background: -webkit-linear-gradient(to top, #47275a, #47275a, #100515);
-  background: linear-gradient(to top, #47275a, #47275a, #100515);
+  /* I prefer the first comment but I rather go with the instructions at this one. */
 
-  h1 {
+  /* background: -webkit-linear-gradient(to top, #47275a, #47275a, #100515);
+  background: linear-gradient(to top, #47275a, #47275a, #100515); */
+
+  #upper_shadow {
+    position: absolute;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+
+    background: transparent linear-gradient(180deg, #100515 0%, #45155a00 40%)
+      0% 0% no-repeat padding-box;
+  }
+
+  .page_title {
+    z-index: 10;
     color: #fff;
     font-size: 48px;
     font-weight: bold;

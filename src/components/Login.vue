@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <h1 id="login_title">Login</h1>
-    <form @submit.prevent="">
+    <form @submit.prevent="performLogin">
       <input type="text" placeholder="EMAIL" name="form_input_email" />
       <input type="text" placeholder="SENHA" name="form_input_password" />
       <button>
@@ -17,9 +17,19 @@
 </template>
 
 <script>
+import store from "../store";
+
 export default {
   name: "Login",
-  setup() {},
+  setup() {
+    function performLogin() {
+      store.dispatch("setLogin");
+    }
+
+    return {
+      performLogin,
+    };
+  },
 };
 </script>
 
@@ -34,15 +44,24 @@ export default {
   height: 100%;
 
   #login_title {
+    z-index: 10;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    top: 8vh;
+    letter-spacing: 0px;
+
     font-size: 36px;
     margin: 10vh 0 10vh 0;
 
     @media (max-width: 500px) {
       font-size: 28px;
+      margin: 12vh 0 2vh 0;
     }
   }
 
   form {
+    z-index: 10;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -73,7 +92,7 @@ export default {
       border-radius: 8px;
       padding: 14px;
       position: relative;
-      top: 4vh;
+      top: 5vh;
 
       width: 266px;
       height: 56px;

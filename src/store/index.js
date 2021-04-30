@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import movie from "../utils/movieMock";
+import auth from "./auth";
 
 export default createStore({
   state: {
@@ -16,5 +17,7 @@ export default createStore({
       commit("SET_LOGIN");
     },
   },
-  modules: {},
+  modules: {
+    auth,
+  },
 });

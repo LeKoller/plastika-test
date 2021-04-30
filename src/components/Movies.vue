@@ -1,7 +1,11 @@
 <template>
   <div id="container">
     <div id="vertical_line" />
-    <div class="card" v-for="movie in moviesList" :key="movie">
+    <div
+      class="card animate__animated animate__fadeIn"
+      v-for="movie in moviesList"
+      :key="movie"
+    >
       <img :src="movie.picture" alt="Movie banner." class="movie_picture" />
       <div class="movie_data">
         <div class="title_and_grade">
@@ -162,7 +166,7 @@ export default {
     height: 100%;
     top: 0;
 
-    @media (max-width: 1470px) {
+    @media (max-width: 1270px) {
       display: none;
     }
   }
@@ -178,7 +182,7 @@ export default {
     padding: 16px;
     position: relative;
 
-    @media (min-width: 1470px) {
+    @media (min-width: 1270px) {
       &:nth-child(2n + 1) {
         top: 297px;
       }

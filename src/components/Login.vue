@@ -7,12 +7,14 @@
         placeholder="EMAIL"
         name="form_input_email"
         autocomplete="off"
+        v-model="state.email"
       />
       <input
         type="password"
         placeholder="SENHA"
         name="form_input_password"
         autocomplete="off"
+        v-model="state.password"
       />
       <button>
         <span>ACESSAR</span>
@@ -23,21 +25,45 @@
         />
       </button>
     </form>
+    <div v-if="state.loginFailed">
+      <span class="error_message animate__animated animate__fadeIn"
+        >o login falhou, tente novamente</span
+      >
+    </div>
   </div>
 </template>
 
 <script>
+import { reactive } from "vue";
 import store from "../store";
 
 export default {
   name: "Login",
   setup() {
+    const state = reactive({
+      email: "",
+      password: "",
+      loginFailed: false,
+    });
+
+    const loginFailed = () => {
+      state.loginFailed = true;
+    };
+
     function performLogin() {
-      store.dispatch("setLogin");
+      store.dispatch("auth/signIn", {
+        email: state.email,
+        password: state.password,
+      });
+
+      setTimeout(() => {
+        loginFailed();
+      }, 900);
     }
 
     return {
       performLogin,
+      state,
     };
   },
 };
@@ -53,8 +79,15 @@ export default {
   width: 100%;
   height: 100%;
 
+  .error_message {
+    color: rgb(226, 100, 100);
+    position: relative;
+    top: 200px;
+    font-size: large;
+  }
+
   #login_title {
-    z-index: 10;
+    z-index: 12;
     color: #fff;
     font-weight: bold;
     position: relative;
@@ -86,6 +119,12 @@ export default {
       width: 504px;
       height: 56px;
       margin: 8px;
+      transition: all 0.25s ease;
+      padding: 0 16px;
+
+      &:hover {
+        opacity: 0.5;
+      }
 
       @media (max-width: 700px) {
         width: 80vw;

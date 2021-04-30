@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Login v-if="!isLogged" />
-    <Movies v-else />
+    <Login v-if="!isLogged" class="animate__animated animate__fadeIn" />
+    <Movies v-else class="animate__animated animate__fadeIn" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     Movies,
   },
   setup() {
-    const isLogged = computed(() => store.state.isLogged);
+    const isLogged = computed(() => store.state.auth.user !== null);
 
     return {
       isLogged,

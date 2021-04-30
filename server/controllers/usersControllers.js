@@ -8,11 +8,6 @@ const JWT_SECRET = "sihoqhfqoehoheoq736@^#*&@susiags";
 
 exports.create = async (req, res) => {
   const { email, password: plainTextPassword } = req.body;
-
-  if (!validate(email)) {
-    return res.status(422);
-  }
-
   const password = await bcrypt.hash(plainTextPassword, 10);
 
   try {
@@ -31,7 +26,9 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ email }).lean();
 
-    if (!user) return res.status(404);
+    if (!user) {
+      return res.sendStatus(404);
+    }
 
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
@@ -42,6 +39,6 @@ exports.login = async (req, res) => {
       return res.json({ id: await user._id, email: user.email, token: token });
     }
   } catch {
-    res.status(422);
+    res.sendStatus(422);
   }
 };

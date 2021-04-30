@@ -1,9 +1,19 @@
 <template>
   <div id="container">
     <h1 id="login_title">Login</h1>
-    <form @submit.prevent="performLogin">
-      <input type="text" placeholder="EMAIL" name="form_input_email" />
-      <input type="text" placeholder="SENHA" name="form_input_password" />
+    <form @submit.prevent="performLogin" autocomplete="off">
+      <input
+        type="text"
+        placeholder="EMAIL"
+        name="form_input_email"
+        autocomplete="off"
+      />
+      <input
+        type="password"
+        placeholder="SENHA"
+        name="form_input_password"
+        autocomplete="off"
+      />
       <button>
         <span>ACESSAR</span>
         <img
